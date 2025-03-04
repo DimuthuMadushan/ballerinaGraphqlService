@@ -1,0 +1,14 @@
+type Query {
+  name: String!
+  all: [CovidData!]!
+  filter(isoCode: String!): CovidData
+}
+
+type CovidData {
+  isoCode: String!
+  country: String!
+  cases: Int
+  deaths: Int
+  recovered: Int
+  active: Int
+}
