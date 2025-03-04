@@ -1,5 +1,21 @@
 import ballerina/graphql;
 
+isolated service /covid19 on new graphql:Listener(9090) {
+
+    isolated resource function get name() returns string {
+        return "Covid-~19 data";
+    }
+
+    isolated resource function get all() returns CovidData[] {
+        return covidEntries.toArray();
+    }
+
+    isolated resource function get filter(string isoCode) returns CovidData? {
+        return covidEntries.get(isoCode);
+    }
+
+}
+
 public type CovidEntry record {|
     readonly string isoCode;
     string country;
@@ -28,19 +44,3 @@ public type CovidData record {|
     int recovered?;
     int active?;
 |};
-
-isolated service /covid19 on new graphql:Listener(9090) {
-
-    isolated resource function get name() returns string {
-        return "Covid-~19 data";
-    }
-
-    isolated resource function get all() returns CovidData[] {
-        return covidEntries.toArray();
-    }
-
-    isolated resource function get filter(string isoCode) returns CovidData? {
-        return covidEntries.get(isoCode);
-    }
-
-}
