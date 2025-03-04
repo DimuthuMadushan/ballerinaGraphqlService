@@ -6,6 +6,7 @@ endpoints:
       service:
         basePath: /covid19
         port: 9090
+        context: /covid19
       type: GraphQL
       networkVisibilities:
         - Project
