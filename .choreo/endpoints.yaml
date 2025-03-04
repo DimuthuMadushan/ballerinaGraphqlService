@@ -1,6 +1,7 @@
 schemaVersion: "1.1"
 endpoints:
     - name: graphqlservice
+      version: v1
       displayName: covod19
       service:
         basePath: /covid19
