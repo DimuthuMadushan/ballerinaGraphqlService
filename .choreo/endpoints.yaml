@@ -1,0 +1,8 @@
+version: 0.1
+
+endpoints:
+  - name: graphql-endpoint
+    port: 9090
+    type: GraphQL
+    networkVisibility: Public
+    context: /covid19
